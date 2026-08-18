@@ -1,0 +1,504 @@
+:root {
+    --sidebar-bg: #18181b;
+    --sidebar-text: #f4f4f5;
+    --sidebar-muted: #d4d4d8;
+    --sidebar-border: #27272a;
+
+    --content-bg: #18181b;
+    --content-text: #f4f4f5;
+    --content-muted: #d4d4d8;
+    --content-border: #27272a;
+
+    --accent: #2dd4bf;
+    --accent-hover: #14b8a6;
+    --accent-bg: rgba(45, 212, 191, 0.15);
+    --accent-2: #2dd4bf;
+    --content-faint: #71717a;
+
+    --sidebar-width: 320px;
+    
+    
+    --card-bg: #1e1e1e;
+    --tag-bg: #27272a;
+    --tag-color: #d4d4d8;
+    --section-border: #27272a;
+}
+
+[data-theme='light'] {
+    --sidebar-bg: #f5f1e8;
+    --sidebar-text: #2d2a26;
+    --sidebar-muted: #57534e;
+    --sidebar-border: #ddd6c9;
+
+    --content-bg: #f5f1e8;
+    --content-text: #2d2a26;
+    --content-muted: #57534e;
+    --content-border: #ddd6c9;
+
+    --accent: #14b8a6;
+    --accent-hover: #0d9488;
+    --accent-bg: rgba(20, 184, 166, 0.12);
+    --accent-2: #14b8a6;
+    --content-faint: #a8a29e;
+
+   
+    --card-bg: #ffffff;
+    --tag-bg: #f1f3f5;
+    --tag-color: #444444;
+    --section-border: #ddd6c9;
+}
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    scroll-behavior: smooth;
+}
+
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    border-left: 1px solid var(--sidebar-border);
+    border-right: 1px solid var(--sidebar-border);
+}
+
+/* ============ SOL SIDEBAR ============ */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    /* İçerik taşarsa kaydırabilmek için kalabilir */
+    border-right: 1px solid var(--sidebar-border);
+
+    /* Kaydırma çubuğunu tamamen gizleyen kodlar: */
+    scrollbar-width: none;
+    /* Firefox için */
+}
+
+/* Chrome, Safari ve Edge için kaydırma çubuğunu gizleme */
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-inner {
+    padding: 2.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.1rem;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem 0;
+}
+
+.profile-title {
+    font-size: 0.9rem;
+    color: var(--sidebar-muted);
+    margin-bottom: 1.75rem;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.35rem;
+    margin-bottom: 2rem;
+}
+
+.side-nav .nav-link {
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.side-nav .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    color: var(--accent-2);
+}
+
+.contact-info {
+    width: 100%;
+    border-top: 1px solid var(--sidebar-border);
+    padding-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--sidebar-muted);
+}
+
+.contact-info p {
+    margin: 0.35rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    word-break: break-word;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-icons a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid var(--content-border);
+    color: var(--accent);
+    box-shadow: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icons a:hover {
+    border-color: var(--accent);
+    background-color: var(--accent-bg);
+}
+
+.theme-toggle-btn {
+    position: absolute;
+    top: 24px;
+    right: 60px;
+    z-index: 100;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--sidebar-border);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* ============ SAĞ İÇERİK ============ */
+.content {
+    flex: 1;
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.content-inner {
+    width: 100%;
+    max-width: 900px;
+}
+
+.section {
+    padding: 3rem 0;
+    scroll-margin-top: 20px;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 1.75rem;
+}
+
+.section-title span {
+    color: var(--content-text);
+}
+
+/* Hero */
+.hero-section {
+    padding-top: 1.5rem;
+}
+
+.section-eyebrow {
+    color: var(--accent-2);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--content-muted);
+    margin-bottom: 1.5rem;
+}
+
+.btn-hire {
+    background-color: var(--accent-2);
+    border: none;
+    padding: 0.65rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.btn-hire:hover {
+    background-color: #3a7ad9;
+}
+
+/* About */
+.about-text {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--content-muted);
+    max-width: 780px;
+}
+
+/* Skills */
+/* Skills Kutucuk Tasarımı */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-box {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--content-border);
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+
+.skill-name {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.skill-box:hover {
+    border-color: var(--accent);
+    background-color: var(--accent-bg);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.15);
+}
+
+/* Projects */
+.project-card {
+    border: 1px solid #eee;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.project-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-color: #dfe3e8;
+}
+
+.project-body {
+    padding: 1.25rem;
+}
+
+.project-body h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.project-body p {
+    color: var(--content-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    background-color: #f1f3f5;
+    color: #444;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+}
+
+.project-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-2);
+    text-decoration: none;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* Contact */
+.contact-box {
+    background-color: #f8f9fb;
+    border-radius: 14px;
+    padding: 2rem;
+}
+
+.contact-details {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.footer {
+    text-align: center;
+    color: var(--content-muted);
+    font-size: 0.85rem;
+    margin-top: 2.5rem;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 992px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+    }
+}
+
+.dev-title {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+}
+
+.menu-toggle-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid var(--sidebar-border);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    font-size: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+}
+
+@media (max-width: 992px) {
+    .menu-toggle-btn {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        min-width: 280px;
+        height: 100vh;
+        z-index: 180;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.open {
+        display: block;
+    }
+
+    .theme-toggle-btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+}
