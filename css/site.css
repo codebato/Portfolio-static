@@ -16,8 +16,8 @@
     --content-faint: #71717a;
 
     --sidebar-width: 320px;
-    
-    
+
+
     --card-bg: #1e1e1e;
     --tag-bg: #27272a;
     --tag-color: #d4d4d8;
@@ -41,12 +41,13 @@
     --accent-2: #14b8a6;
     --content-faint: #a8a29e;
 
-   
+
     --card-bg: #ffffff;
     --tag-bg: #f1f3f5;
     --tag-color: #444444;
     --section-border: #ddd6c9;
 }
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -204,7 +205,7 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    
+
 }
 
 .theme-toggle-btn:hover {
@@ -329,7 +330,8 @@ body {
 
 /* Projects */
 .project-card {
-    border: 1px solid #eee;
+    background-color: var(--card-bg);
+    border: 1px solid var(--section-border);
     border-radius: 14px;
     overflow: hidden;
     height: 100%;
@@ -372,8 +374,8 @@ body {
 }
 
 .tag {
-    background-color: #f1f3f5;
-    color: #444;
+    background-color: var(--tag-bg);
+    color: var(--tag-color);
     font-size: 0.75rem;
     padding: 0.25rem 0.65rem;
     border-radius: 20px;
