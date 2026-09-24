@@ -1,11 +1,12 @@
 /* ============ RENK VE FONT DEĞİŞKENLERİ ============ */
-/* Renkler blogdan (blog.batihaneyyubi.com) alındı; tek yerden değiştirilebilsin diye burada toplandı */
+/* Zemin ve yazı renkleri blogdan (blog.batihaneyyubi.com), vurgu rengi eski portfolyonun turkuazı;
+   tek yerden değiştirilebilsin diye burada toplandı */
 :root {
     --bg: #282c35;
     --text: #e5e5e6;
     --muted: #a3a8ad;
-    --accent: #f2c46d;
-    --accent-soft: rgba(242, 196, 109, 0.22);
+    --accent: #2dd4bf;
+    --accent-soft: rgba(45, 212, 191, 0.18);
     --border: rgba(255, 255, 255, 0.1);
     --chip-bg: rgba(255, 255, 255, 0.06);
     --card-bg: rgba(255, 255, 255, 0.04);
@@ -21,9 +22,9 @@
     --bg: #ffffff;
     --text: #232129;
     --muted: #5f636b;
-    /* Sarı beyaz zeminde okunmuyor; aynı tonun koyu hali kullanıldı (kontrast ~5:1) */
-    --accent: #b45309;
-    --accent-soft: rgba(180, 83, 9, 0.12);
+    /* Açık turkuaz beyaz zeminde okunmuyor; aynı tonun koyu hali kullanıldı (kontrast ~5:1) */
+    --accent: #0f766e;
+    --accent-soft: rgba(15, 118, 110, 0.12);
     --border: rgba(0, 0, 0, 0.1);
     --chip-bg: rgba(0, 0, 0, 0.04);
     --card-bg: #fafafa;
